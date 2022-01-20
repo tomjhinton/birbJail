@@ -1,0 +1,150 @@
+
+
+
+@font-face {
+  font-family: Basement;
+  src: url('../static/BasementGrotesque-Black_v1.202.otf');
+}
+
+
+
+@font-face {
+  font-family: ferrite;
+  src: url('../static/FerriteCoreDX-Regular.otf');
+}
+
+
+
+.title{
+  font-size: 4em;
+  font-family: Basement;
+  // text-align: center;
+  position: absolute;
+  color: rgba(255,0,0,1);
+  // pointer-events: none;
+  top: 5%;
+  left: 5%;
+  // justify-content: center;
+  width: 30%;
+  height: 20px;
+  z-index: 1;
+  cursor: pointer;
+  filter: drop-shadow(0 0 1.75rem crimson);
+}
+
+.loading-bar
+{
+    color: white;
+    font-size: 10em;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    background: #33FF33;
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 0.5s;
+
+
+}
+
+.loading-bar.ended
+{
+    transform: scaleX(0);
+    transform-origin: 100% 0;
+    transition: transform 1.5s ease-in-out;
+}
+
+.loading-bar-text
+{
+    pointer-events: none;
+    font-family: Ferrite;
+    color: #33FF33;
+    font-size: 10em;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    justify-content: center;
+    width: 100%;
+    height: 20px;
+    // transition: transform 1.5s ease-in-out;
+
+
+
+
+}
+
+#body{
+  background-color: #000000;
+}
+
+
+.blink-bg{
+		color: #fff;
+		// padding: 10px;
+		// display: inline-block;
+		// border-radius: 5px;
+		animation: blinkingBackground 1s infinite;
+	}
+	@keyframes blinkingBackground{
+		0%		{ background-color: #ef0a1a;}
+		50%		{ background-color: #ffffff;}
+		// 66%		{ background-color: #ef0a1a;}
+		100%		{ background-color: #ef0a1a;}
+
+	}
+
+
+.fade-out {
+
+  animation: fadeOut ease 4s  forwards;;
+  -webkit-animation: fadeOut ease 4s  forwards;;
+  -moz-animation: fadeOut ease 4s  forwards;;
+  -o-animation: fadeOut ease 4s  forwards;;
+  -ms-animation: fadeOut ease 4s  forwards;;
+}
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+}
+}
