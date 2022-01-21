@@ -94,14 +94,51 @@ s1B.on('change', function(ev) {
 })
 
 
-s2.addInput(PARAMS, 's2A', {min: 0.03, max: 1, step: 0.01});
-s2.addInput(PARAMS, 's2B' , {min: 0.03, max: 1, step: 0.01});
+const s2A = s2.addInput(PARAMS, 's2A', {min: 0.03, max: 1, step: 0.01} )
 
-s3.addInput(PARAMS, 's3A' , {min: 0.03, max: 1, step: 0.01});
-s3.addInput(PARAMS, 's3B' , {min: 0.03, max: 1, step: 0.01});
+s2A.on('change', function(ev) {
+  screen1Material.uniforms.uValueA.value = ev.value
 
-s4.addInput(PARAMS, 's4A' , {min: 0.03, max: 1, step: 0.01});
-s4.addInput(PARAMS, 's4B' , {min: 0.03, max: 1, step: 0.01});
+})
+
+
+const s2B = s2.addInput(PARAMS, 's2B', {min: 0.03, max: 1, step: 0.01} )
+
+s2B.on('change', function(ev) {
+  screen1Material.uniforms.uValueB.value = ev.value
+
+})
+
+const s3A = s3.addInput(PARAMS, 's3A', {min: 0.03, max: 1, step: 0.01} )
+
+s3A.on('change', function(ev) {
+  screen2Material.uniforms.uValueA.value = ev.value
+
+})
+
+
+const s3B = s3.addInput(PARAMS, 's3B', {min: 0.03, max: 1, step: 0.01} )
+
+s3B.on('change', function(ev) {
+  screen2Material.uniforms.uValueB.value = ev.value
+
+})
+
+
+const s4A = s4.addInput(PARAMS, 's4A', {min: 0.03, max: 1, step: 0.01} )
+
+s4A.on('change', function(ev) {
+  screen3Material.uniforms.uValueA.value = ev.value
+
+})
+
+
+const s4B = s4.addInput(PARAMS, 's4B', {min: 0.03, max: 1, step: 0.01} )
+
+s4B.on('change', function(ev) {
+  screen3Material.uniforms.uValueB.value = ev.value
+
+})
 
 
 

@@ -467,7 +467,7 @@ void main(){
     vec3 white  = vec3(1.);
 
     // Output color.
-    vec3 color = vec3(0.);
+    vec3 color = vec3(uValueA);
 
     color += rect(white,    uv, vec2(.0, .0), vec2(1.,  1.));
     color -= rect(beige- red,    uv, vec2(.0,  .1), vec2(.3, 1.));

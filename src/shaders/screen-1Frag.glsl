@@ -321,7 +321,7 @@ void main(){
    //  uv.x *= dithering2;
   color = mix(color, vec3(1.), spiral);
 
-  color = vec3(cnoise(uv * 30.));
+  color = vec3(cnoise(uv * 30. * uValueA));
 
  gl_FragColor = vec4(color, alpha) + tex ;
 

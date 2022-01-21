@@ -328,7 +328,7 @@ void main(){
   coswarp2(uv, .75);
   //
   uv2 = tile(uv, 10.);
-  
+
   vec2 rote = rotateUV(vUv, vec2(.5), PI * vTime * .05);
 
   float dithering = (Bayer8(uv  * 5.3 ) * 2.0 - 1.0) * 0.5;
@@ -359,7 +359,7 @@ void main(){
 
 
 
-   if(tex.a < .5){
+   if(tex.a < uValueA){
      tex.a = 1.;
      tex.rgb = vec3(uv2.x, uv3.y, uv4.x);
      tex.rgb += square2;
