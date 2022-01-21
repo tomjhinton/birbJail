@@ -294,7 +294,7 @@ void main(){
   // uv += cnoise(uv * 1.);
 
   vec2 rote = rotateUV(uv, vec2(.5), PI * vTime * .05);
-
+  coswarp2(rote, uValueB);
 
   vec4 tex = texture2D(uTexture, rote );
   // uvRipple(uv, 1.5);
@@ -322,6 +322,8 @@ void main(){
   color = mix(color, vec3(1.), spiral);
 
   color = vec3(cnoise(uv * 30. * uValueA));
+  color = color+tex.rgb;
+
 
  gl_FragColor = vec4(color, alpha) + tex ;
 

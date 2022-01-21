@@ -342,122 +342,11 @@ void main(){
   // // uv +=.5;
   // vec2 roteA = rotateUV(uv, vec2(.5), PI * vTime * .05);
   // vec2 roteC = rotateUV(uv, vec2(.5), -PI * vTime * .05);
-  coswarp2(uv, 3.75);
+  coswarp2(uv, 3.75 + uValueB);
   //
   // uv = tile(uv, 10. * uValueA + uValueB * roteA.x);
-  uvRipple(uv, .2 );
-  // float circle = step(distance(vUv, vec2(.1)), .3 + wiggly(vUv.x + vTime * .05, vUv.y + vTime * .05, 4., 2., 0.05 ));
-  // uv.x += cnoise(uv * 1000.);
-  // uv.y += cnoise(roteA * 2000.);
-  //
-  // vec2 rote = rotateUV(vUv, vec2(.5), PI * vTime * .05);
-  //
-  // float dithering = (Bayer8(uv  * 50.3 ) * 2.0 - 1.0) * 0.5;
-  // float dithering2 = (Bayer2(gl_FragCoord.xy  * uValueA ) * 2.0 - 1.0) * 0.5;
-  // // uv.y += dithering;
-  // coswarp2(uv6, 1.);
-  //
-  // vec4 tex = texture2D(uTexture2, vUv);
-  //   // uvRipple(uv, .09);
-  // // uvRipple(uv, 1.5);
-  // // uv.x += dithering2;
-  // // uv.y += dithering2;
-  //
-  // uv.x += dithering;
-  // uv.y += dithering;
-  //
-  // float r = stroke(triangleGrid(uv3, 0.05, 0.000000005,0.001), .5, .5);
-  // float g = triangleGrid(uv6, 0.02, 0.00000005,0.001);
-  // vec3 color = vec3(1., 1., 0. );
-  //
-  // color+= uv.x;
-  // // color += cnoise()
-  // // vec3(dither2x2(uv, uv.x *sin(vTime)), dither4x4(uv, uv.y*cos(vTime)), dither8x8(uv, cnoise(roteC* 4.)));
-  // // coswarp(color, 3. );
-  // // uv.y += dithering;
-  // //
-  // // uv.x += dithering2;
-  //
-  //   // color = tex.rgb;
-  //   // color *= dither8x8(rote, uv.x);
-  //  // coswarp(color, 3. );
-  //  // color *= dither2x2(uv, sin(vTime));
-  //  // color.gr = fract(color.gb *  10.5);
-  //  // color.r = dither2x2(uv, 1.);
-  //  //  color.g = dither2x2(uv, .5);
-  //  //   color.b = dither2x2(uv, .2);
-  //  // color.b = dither8x8(color.gb, .1);
-  //  // color.g = dither8x8(color.rg, .1);
-  //  // color = mix(color, 1.-color, cnoise(rote * 20. * cnoise(roteC*  5. * rote.y)));
-  //  //
-  //
-  //  // coswarp(color, 3. );
-  //  // coswarp2(uv, 2.);
-  //  float square = stroke(rectSDF(vec2(vUv.x, vUv.y -.2), vec2 (1., .1)), .3, .8);
-  //  float square2 = stroke(rectSDF(vec2(vUv.x, vUv.y -.1), vec2 (1., .1)), .3, .8);;
-  //  float square3 = stroke(rectSDF(vec2(vUv.x, vUv.y +.1), vec2 (1., .1)), .3, .8);;
-  //   float square4 = stroke(rectSDF(vec2(vUv.x, vUv.y +.2), vec2 (1., .1)), .3, .8);;
-  //
-  //     float square5 = stroke(rectSDF(vec2(vUv.x, vUv.y +.3), vec2 (1., .1)), .3, .8);
-  //
-  //     float square6 = stroke(rectSDF(vec2(vUv.x, vUv.y -.3), vec2 (1., .1)), .3, .8);
-  //
-  //
-  //   uvRipple(uv4, 2.);
-  //
-  //   // vec3 color2 = vec3(uv2.x, uv2.y, 1.);
-  //   // vec3 color3 = vec3(uv3.y, roteC.x, 1.);
-  //   // vec3 color4 = vec3(1., uv4.y, uv4.x);
-  //   //
-  //   //
-  //   //
-  //   // vec3 color5= vec3(r, g, uv5.x);
-  //   //
-  //   //
-  //   // vec3 color6 = vec3(1., uv6.y, uv6.x);
-  //   // coswarp(color6, 4.);
-  //   // uvRipple(color.rg, 2. * cnoise(rote * 60. * roteC.x));
-  //   // fract(color6.rg *5.);
-  //   //
-  //   //
-  //   // coswarp(color2, 3. );
-  //
-  //  // tex *= square2;
-  //  // color.g *= square2;
-  //  // color.b *= square3;
-  //  // color *= square;
-  //  //
-  //  //  color2 *= square2;
-  //  //  color3 *= square3;
-  //  //  color4 *= square4;
-  //  //  color5 *= square5;
-  //  //  color6 *= square6;
-  //  // color= mix(color, vec3(square * uv.x, square2 *uv.y, cnoise(vec2(square3))), ;
-  //  //
-  //
-  //   // uv.y *= dithering;
-  //   // color = mix(color, tex.rgb, 1.);
-  //
-  //   // coswarp(color, 3. );
-  //   // if(tex.rgb == vec3(1.)){
-  //   //   tex.rgb = vec3(0.);
-  //   // }
-  //  //  uv.x *= dithering2;
-  //  // tex.rgb = mix(tex.rgb, color, 1.);
-  //
-  //  // tex.rgb = 1.-tex.rgb;
-  //  // color = mix(color, 1.-color, g);
-  //  //  color = mix(color, color2, uv.x);
-  //  // color = mix(color, color4, uv.y);
-  //  //  color = mix(color, color6, .5);
-  //  //
-  //  // color *=  tex.rgb;
-  //  // color +=  tex.g;
-  //  // color +=  tex.b;
-  //  color.r = 1.;
-  //  // color = mix(color, tex.rgb, uv5.y +.5);
-  //
-  //
+  uvRipple(uv, uValueA );
+
 
     vec3 red    = vec3(.667, .133, .141);
     vec3 blue   = vec3(0.,   .369, .608);
@@ -467,7 +356,7 @@ void main(){
     vec3 white  = vec3(1.);
 
     // Output color.
-    vec3 color = vec3(uValueA);
+    vec3 color = vec3(0.);
 
     color += rect(white,    uv, vec2(.0, .0), vec2(1.,  1.));
     color -= rect(beige- red,    uv, vec2(.0,  .1), vec2(.3, 1.));
