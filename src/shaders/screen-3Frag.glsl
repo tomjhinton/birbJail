@@ -355,7 +355,7 @@ void main(){
       float square6 = stroke(rectSDF(vec2(uv.x, uv.y ), vec2 (1.5, 1.5)), .5, .05);
 
 
-    uvRipple(uv4, 2.);
+    uvRipple(uv4, 4. * uValueB);
 
 
 
