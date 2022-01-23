@@ -30,7 +30,7 @@ Basically took the suggestions from the chat channel.
 
 - Then I thought I'd add in a tweakpane but basically without reason so other than the first one it's quite pointless.
 - Kind of like those buttons you sometimes get at streetcrossings that dont do anything.
--Keeps you occupied but really why are you pressing it?
+- Keeps you occupied but really why are you pressing it?
 
 
-I did actually want to make it so you could stick new people in the cells but that actually turned out to be more work than I was willing to do / I ran out of time. Need to figure out how to do proper error handling one week. You know creative error handling, bit of fun coding as a way to relax. Now I remember why I didnt do it. 
+I did actually want to make it so you could stick new people in the cells but that actually turned out to be more work than I was willing to do / I ran out of time. Need to figure out how to do proper error handling one week. You know creative error handling, bit of fun coding as a way to relax. Now I remember why I didnt do it.
