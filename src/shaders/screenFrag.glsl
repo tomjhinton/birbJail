@@ -379,11 +379,7 @@ void main(){
   float alpha = 1.;
   vec2 uv = (gl_FragCoord.xy - uResolution * .5) / uResolution.yy ;
   uv = vUv;
-// uv = uv / 2.0 + 0.5;
-  // float ratio = 2. / 1.; //480./204.;
-  //                   uv.y *= ratio;
-  //
-  //                   uv.y -= (0.5 - (1. / ratio) * 0.5) * ratio;
+
   vec2 uv2 = vUv;
   vec2 uv3 = vUv;
   vec2 uv4 = vUv;
@@ -392,14 +388,10 @@ void main(){
   // uv +=.5;
   vec2 roteA = rotateUV(uv, vec2(.5), PI * vTime * .05);
   vec2 roteC = rotateUV(uv, vec2(.5), -PI * vTime * .05);
-  //   uvRipple(uv, .05 );
-  // coswarp2(uv, 13.75);
-  // //
-  // uv = tile(uv, 10. * uValueA + uValueB * roteA.x);
+
 
   float circle = step(distance(vUv, vec2(.1)), .3 + wiggly(vUv.x + vTime * .05, vUv.y + vTime * .05, 4., 2., 0.05 ));
-  // uv.x = cnoise(uv * 1.);
-  // uv.y = cnoise(roteA * 2.);
+
 
   vec2 rote = rotateUV(uv, vec2(.5), PI * vTime * .05);
   rote = tile(rote,10.5 );
@@ -407,10 +399,8 @@ void main(){
 
 
   coswarp2(rote, 3.);
-    // uvRipple(rote, .9);
-  float dithering = (Bayer8(gl_FragCoord.xy   *  rote.x ) * 2.0 - 1.0) * 0.5;
-  float dithering2 = (Bayer2(gl_FragCoord.xy  * uValueA ) * 2.0 - 1.0) * 0.5;
-  // rote.y += dithering;
+
+
 
   vec4 tex = texture2D(uTexture2, uv);
 
@@ -423,17 +413,9 @@ void main(){
   } else if(tex.r > .4 && uValueC > .6){
     uvRipple(tex.gb, 1.2 * uValueB);
     coswarp2(tex.bg, 3. );
-    // coswarp(tex.rgb, 3.);
+
   }
 
-
-
-
-  // if(tex.a < .5){
-  //   tex.a = 1.;
-  //   tex.rgb = color;
-  //   // tex.r *= g;
-  // }
 
  gl_FragColor = tex  ;
 

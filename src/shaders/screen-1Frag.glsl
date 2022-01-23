@@ -107,127 +107,6 @@ void coswarp2(inout vec2 trip, float warpsScale ){
   // trip.xyz += warpsScale * .0125 * cos(21. * trip.yzx + (vTime * .25));
 }
 
-float dither2x2(vec2 position, float brightness) {
-  int x = int(mod(position.x, 2.0));
-  int y = int(mod(position.y, 2.0));
-  int index = x + y * 2;
-  float limit = 0.0;
-
-  if (x < 8) {
-    if (index == 0) limit = 0.25;
-    if (index == 1) limit = 0.75;
-    if (index == 2) limit = 1.00;
-    if (index == 3) limit = 0.50;
-  }
-
-  return brightness < limit ? 0.0 : 1.0;
-}
-
-
-float dither4x4(vec2 position, float brightness) {
-  int x = int(mod(position.x, 4.0));
-  int y = int(mod(position.y, 4.0));
-  int index = x + y * 4;
-  float limit = 0.0;
-
-  if (x < 8) {
-    if (index == 0) limit = 0.0625;
-    if (index == 1) limit = 0.5625;
-    if (index == 2) limit = 0.1875;
-    if (index == 3) limit = 0.6875;
-    if (index == 4) limit = 0.8125;
-    if (index == 5) limit = 0.3125;
-    if (index == 6) limit = 0.9375;
-    if (index == 7) limit = 0.4375;
-    if (index == 8) limit = 0.25;
-    if (index == 9) limit = 0.75;
-    if (index == 10) limit = 0.125;
-    if (index == 11) limit = 0.625;
-    if (index == 12) limit = 1.0;
-    if (index == 13) limit = 0.5;
-    if (index == 14) limit = 0.875;
-    if (index == 15) limit = 0.375;
-  }
-
-  return brightness < limit ? 0.0 : 1.0;
-}
-
-
-float dither8x8(vec2 position, float brightness) {
-  int x = int(mod(position.x, 8.0));
-  int y = int(mod(position.y, 8.0));
-  int index = x + y * 8;
-  float limit = 0.0;
-
-  if (x < 8) {
-    if (index == 0) limit = 0.015625;
-    if (index == 1) limit = 0.515625;
-    if (index == 2) limit = 0.140625;
-    if (index == 3) limit = 0.640625;
-    if (index == 4) limit = 0.046875;
-    if (index == 5) limit = 0.546875;
-    if (index == 6) limit = 0.171875;
-    if (index == 7) limit = 0.671875;
-    if (index == 8) limit = 0.765625;
-    if (index == 9) limit = 0.265625;
-    if (index == 10) limit = 0.890625;
-    if (index == 11) limit = 0.390625;
-    if (index == 12) limit = 0.796875;
-    if (index == 13) limit = 0.296875;
-    if (index == 14) limit = 0.921875;
-    if (index == 15) limit = 0.421875;
-    if (index == 16) limit = 0.203125;
-    if (index == 17) limit = 0.703125;
-    if (index == 18) limit = 0.078125;
-    if (index == 19) limit = 0.578125;
-    if (index == 20) limit = 0.234375;
-    if (index == 21) limit = 0.734375;
-    if (index == 22) limit = 0.109375;
-    if (index == 23) limit = 0.609375;
-    if (index == 24) limit = 0.953125;
-    if (index == 25) limit = 0.453125;
-    if (index == 26) limit = 0.828125;
-    if (index == 27) limit = 0.328125;
-    if (index == 28) limit = 0.984375;
-    if (index == 29) limit = 0.484375;
-    if (index == 30) limit = 0.859375;
-    if (index == 31) limit = 0.359375;
-    if (index == 32) limit = 0.0625;
-    if (index == 33) limit = 0.5625;
-    if (index == 34) limit = 0.1875;
-    if (index == 35) limit = 0.6875;
-    if (index == 36) limit = 0.03125;
-    if (index == 37) limit = 0.53125;
-    if (index == 38) limit = 0.15625;
-    if (index == 39) limit = 0.65625;
-    if (index == 40) limit = 0.8125;
-    if (index == 41) limit = 0.3125;
-    if (index == 42) limit = 0.9375;
-    if (index == 43) limit = 0.4375;
-    if (index == 44) limit = 0.78125;
-    if (index == 45) limit = 0.28125;
-    if (index == 46) limit = 0.90625;
-    if (index == 47) limit = 0.40625;
-    if (index == 48) limit = 0.25;
-    if (index == 49) limit = 0.75;
-    if (index == 50) limit = 0.125;
-    if (index == 51) limit = 0.625;
-    if (index == 52) limit = 0.21875;
-    if (index == 53) limit = 0.71875;
-    if (index == 54) limit = 0.09375;
-    if (index == 55) limit = 0.59375;
-    if (index == 56) limit = 1.0;
-    if (index == 57) limit = 0.5;
-    if (index == 58) limit = 0.875;
-    if (index == 59) limit = 0.375;
-    if (index == 60) limit = 0.96875;
-    if (index == 61) limit = 0.46875;
-    if (index == 62) limit = 0.84375;
-    if (index == 63) limit = 0.34375;
-  }
-
-  return brightness < limit ? 0.0 : 1.0;
-}
 
 vec2 rotateUV(vec2 uv, vec2 pivot, float rotation) {
   mat2 rotation_matrix=mat2(  vec2(sin(rotation),-cos(rotation)),
@@ -238,44 +117,6 @@ vec2 rotateUV(vec2 uv, vec2 pivot, float rotation) {
   uv += pivot;
   return uv;
 }
-float Bayer2(vec2 a) {
-    a = floor(a);
-    return fract(a.x / 2. + a.y * a.y * .75);
-}
-
-#define Bayer4(a)   (Bayer2 (.5 *(a)) * .25 + Bayer2(a))
-#define Bayer8(a)   (Bayer4 (.5 *(a)) * .25 + Bayer2(a))
-#define Bayer16(a)  (Bayer8 (.5 *(a)) * .25 + Bayer2(a))
-#define Bayer32(a)  (Bayer16(.5 *(a)) * .25 + Bayer2(a))
-#define Bayer64(a)  (Bayer32(.5 *(a)) * .25 + Bayer2(a))
-
-float stroke(float x, float s, float w){
-  float d = step(s, x+ w * .5) - step(s, x - w * .5);
-  return clamp(d, 0., 1.);
-}
-
-float wiggly(float cx, float cy, float amplitude, float frequency, float spread){
-
-  float w = sin(cx * amplitude * frequency * PI) * cos(cy * amplitude * frequency * PI) * spread;
-
-  return w;
-}
-
-float rectSDF(vec2 st, vec2 s) {
-    st = st*2.-1.;
-    return max( abs(st.x/s.x),
-                abs(st.y/s.y) );
-}
-
-float spiralSDF(vec2 st, float t){
-  st -= .5;
-  // st.x+= sin(vTime);
-  // st.y+= cos(vTime);
-  float r = dot(st, st);
-  float a = atan(st.y, st.x );
-  return abs(sin(fract(log(r)*t+a*0.159)));
-}
-
 
 
 
@@ -283,45 +124,13 @@ void main(){
   float alpha = 1.;
   vec2 uv = (gl_FragCoord.xy - uResolution * .5) / uResolution.yy ;
   uv = vUv;
-  // uv +=.5;
-  vec2 roteA = rotateUV(uv, vec2(.5), PI * vTime * .05);
-  vec2 roteC = rotateUV(uv, vec2(.5), -PI * vTime * .05);
-  // coswarp2(uv, 1.5);
-  //
-  // uv = tile(uv, 10. * uValueA + uValueB * roteA.x);
-  // uvRipple(uv, .1 );
-  float circle = step(distance(uv, vec2(.5)), .3 + wiggly(vUv.x + vTime * .05, vUv.y + vTime * .05, 4., 2., 0.05 ));
-  // uv += cnoise(uv * 1.);
 
   vec2 rote = rotateUV(uv, vec2(.5), PI * vTime * .05);
   coswarp2(rote, uValueB);
 
   vec4 tex = texture2D(uTexture, rote );
-  // uvRipple(uv, 1.5);
-  vec3 color = vec3( uv.x, uv.y,  1.);
 
-  coswarp(color, 3. );
-
-   color.gr = fract(color.gb *  .5);
-   // color.r = dither2x2(uv, 1.);
-   //  color.g = dither2x2(uv, .5);
-   //   color.b = dither2x2(uv, .2);
-   // color.b = dither8x8(color.gb, .1);
-   // color.g = dither8x8(color.rg, .1);
-   // color = mix(color, 1.-color, cnoise(rote * 20. * cnoise(roteC*  5. * rote.y)));
-   //
-
-   coswarp(color, 3. );
-   // coswarp2(uv, 2.);
-   float square = stroke(rectSDF(uv, vec2 (1.)), .3+ wiggly(uv.x + vTime * .05, uv.y + vTime * .05, 2., 6., 0.5), .5);
-   float square2 = stroke(rectSDF(uv, vec2 (1.)),.1, .8);
-   float square3 = stroke(rectSDF(uv, vec2 (.25)),.4, .3);
-
-    float spiral = stroke(spiralSDF(rote, 1.1  ), .5, .1);
-   //  uv.x *= dithering2;
-  color = mix(color, vec3(1.), spiral);
-
-  color = vec3(cnoise(uv * 30. * uValueA));
+  vec3 color = vec3(cnoise(uv * 30. * uValueA));
   color = color+tex.rgb;
 
 

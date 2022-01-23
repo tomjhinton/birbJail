@@ -323,10 +323,6 @@ let diaColor = "#fffbe6";
   p.textSize(38); //make the text 20 pixels in size
     p5C  = document.getElementById('defaultCanvas0')
     p5CTex = new THREE.CanvasTexture(p5C)
-    // p5CTex.wrapS = THREE.RepeatWrapping;
-    // p5CTex.wrapT = THREE.RepeatWrapping;
-    // p5CTex.repeat.set( 4, 4 );
-    console.log(p5CTex)
     screenMaterial.uniforms.uTexture2 ={
       value: p5CTex
     }
@@ -408,24 +404,14 @@ let diaColor = "#fffbe6";
    if (count === squareSpinFrames + diaSpinFrames) count = 0;
 
 
-  // p.background(255);p.stroke('#E0F7DA'); let j=30;
-  // for(let x=0;x<width;x+=j){
-  // for(let y=0;y<height;y+=j){
-  // if(p.noise(x,y)<p.abs(p.sin(t)))p.line(x,y,x+j,y+j);
-  // else p.line(x,y+j,x+j,y)}}t+=0.02
 
-
-
-
-    // p.fill(0, 102, 153);
-    // screenMaterial.needsUpdate = true
   };
 };
 
 let p5C2, p5CTex2
 const sketch2 = (p) => {
 
-  let content = 'The dataset contains no bias. This task is ethical, needs doing and is best done with this toolset. '; //variable for text string
+
 let yStart = 0; //starting position of the text wall
   let customFont; //variable for custom font
 
@@ -437,8 +423,8 @@ let yStart = 0; //starting position of the text wall
   p.setup = function() {
      p.frameRate(.5)
     p.createCanvas(800, 400);
-    // p.textFont(customFont); //use the custom font for text display
-  p.textAlign(p.TOP, p.TOP); //adjust the anchor point of text alignment to the horizontal and vertical centers
+
+  p.textAlign(p.TOP, p.TOP);
   p.textSize(238); //make the text 20 pixels in size
     p5C2  = document.getElementById("defaultCanvas1");
     p5CTex2 = new THREE.CanvasTexture(p5C2)
@@ -474,17 +460,6 @@ let yStart = 0; //starting position of the text wall
   // p.noFill()
   // p.rect(width/4 , height /5, 450, height);
   p5CTex2.needsUpdate = true
-
-
-
-  //
-  // yStart+=1
-  // if(yStart === height){
-  //   yStart = -height
-  // }
-// console.log(yStart)
-
-
 
 
 
@@ -663,10 +638,6 @@ gtlfLoader.load(
 
 
 
-    // fire.needsUpdate = true
-    //
-    // fire.material = fireMaterial
-    // eyes.material = eyesMaterial
     screenM.material = screenMaterial
     screen1.material = screen1Material
     screen2.material = screen2Material
@@ -692,36 +663,7 @@ document.querySelector('#titular').addEventListener('click', (e) => {
  }
 
 })
-// gtlfLoader.load(
-//   'birds.glb',
-//   (gltf) => {
-//
-//     gltf.scene.scale.set(5.5,5.5,5.5)
-//     sceneGroup = gltf.scene
-//     sceneGroup.needsUpdate = true
-//     sceneGroup.position.z -= 15
-//     sceneGroup.position.y -= 3
-//     sceneGroup.position.x += 6
-//     scene.add(sceneGroup)
-//
-//     if(gltf.animations[0]){
-//       mixer = new THREE.AnimationMixer(gltf.scene)
-//
-//       const action2 = mixer.clipAction(gltf.animations[1])
-//
-//       action2.play()
-//
-//     }
-//
-//
-//   }
-// )
 
-
-// const light = new THREE.AmbientLight( 0x404040 )
-// scene.add( light )
-// const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 )
-// scene.add( directionalLight )
 
 const sizes = {
   width: window.innerWidth,
